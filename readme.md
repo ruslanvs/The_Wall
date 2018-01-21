@@ -1,0 +1,1 @@
+Client - server cycle with user authorization - educational assignment at Coding Dojo
