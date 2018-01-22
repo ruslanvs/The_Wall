@@ -19,12 +19,12 @@ def wall():
     if not session['user_id']:
         return render_template( "index.html" )
 
-    query = "SELECT first_name FROM users WHERE id = :id"
+    query = "SELECT first_name, id FROM users WHERE id = :id"
     q_p = { 'id': session['user_id'] }
     user = {}
-    user['first_name'] = mysql.query_db( query, q_p )[0]['first_name']
+    user = mysql.query_db( query, q_p )[0]
 
-    query = "SELECT first_name, last_name, message, DATE_FORMAT(messages.created_at, '%M %d, %Y') AS message_date, messages.id FROM messages JOIN users ON users.id = messages.user_id ORDER BY messages.created_at DESC"
+    query = "SELECT first_name, last_name, message, DATE_FORMAT(messages.created_at, '%M %d, %Y') AS message_date, messages.id, user_id FROM messages JOIN users ON users.id = messages.user_id ORDER BY messages.created_at DESC"
     messages = mysql.query_db( query )
 
     query = "SELECT users.first_name, users.last_name, comments.message_id, comment, DATE_FORMAT(comments.created_at, '%M %d, %Y') AS comment_date FROM comments JOIN users ON comments.user_id = users.id ORDER BY comments.created_at ASC"
@@ -55,6 +55,12 @@ def post_comment( message_id ):
     }
     mysql.query_db( query, q_p )
     
+    return redirect( "/wall" )
+
+# DELETE MESSAGE
+@app.route( "/delete_message" )
+def delete_message():
+    flash ("delete command received!")
     return redirect( "/wall" )
 
 # LOGIN

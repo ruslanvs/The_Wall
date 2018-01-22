@@ -34,7 +34,7 @@ CREATE TABLE `comments` (
   KEY `fk_comments_messages1_idx` (`message_id`),
   CONSTRAINT `fk_comments_messages1` FOREIGN KEY (`message_id`) REFERENCES `messages` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   CONSTRAINT `fk_comments_users1` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -43,7 +43,7 @@ CREATE TABLE `comments` (
 
 LOCK TABLES `comments` WRITE;
 /*!40000 ALTER TABLE `comments` DISABLE KEYS */;
-INSERT INTO `comments` VALUES (1,'Perspiciatis quaerat saepe veniam officiis unde, nesciunt commodi accusamus dolorum nihil doloremque numquam sequi consequatur aliquam est eligendi odio architecto eius fugiat exercitationem? Assumenda dicta ex pariatur dolore odit praesentium facere vel?','2018-01-21 17:13:40','2018-01-21 17:13:40',2,2),(2,'Response to Marat','2018-01-21 17:31:54','2018-01-21 17:31:54',2,1),(3,'Response to Arash\r\n','2018-01-21 17:32:55','2018-01-21 17:32:55',2,2),(4,'From Marat to Arash','2018-01-21 18:08:43','2018-01-21 18:08:43',1,2),(5,'Arash commented in response to Marat','2018-01-21 18:09:24','2018-01-21 18:09:24',2,2),(6,'Shut up bitch','2018-01-21 18:46:16','2018-01-21 18:46:16',1,3),(7,'I thought so too','2018-01-21 18:55:06','2018-01-21 18:55:06',3,4),(8,'Assumenda dicta ex pariatur dolore odit praesentium facere vel? Illo veniam, illum maiores dicta doloribus itaque dolorem quos sequi, tenetur minima impedit fugit non animi at tempore velit debitis aliquid autem! Hic quae amet incidunt?','2018-01-21 19:03:52','2018-01-21 19:03:52',3,5),(9,'Beatae sit voluptatum laudantium eligendi dolor quidem!','2018-01-21 19:04:22','2018-01-21 19:04:22',1,5),(10,'Beatae sit voluptatum laudantium eligendi dolor quidem!','2018-01-21 19:05:18','2018-01-21 19:05:18',2,4);
+INSERT INTO `comments` VALUES (1,'Perspiciatis quaerat saepe veniam officiis unde, nesciunt commodi accusamus dolorum nihil doloremque numquam sequi consequatur aliquam est eligendi odio architecto eius fugiat exercitationem? Assumenda dicta ex pariatur dolore odit praesentium facere vel?','2018-01-21 17:13:40','2018-01-21 17:13:40',2,2),(2,'Response to Marat','2018-01-21 17:31:54','2018-01-21 17:31:54',2,1),(3,'Response to Arash\r\n','2018-01-21 17:32:55','2018-01-21 17:32:55',2,2),(4,'From Marat to Arash','2018-01-21 18:08:43','2018-01-21 18:08:43',1,2),(5,'Arash commented in response to Marat','2018-01-21 18:09:24','2018-01-21 18:09:24',2,2),(6,'Shut up bitch','2018-01-21 18:46:16','2018-01-21 18:46:16',1,3),(7,'I thought so too','2018-01-21 18:55:06','2018-01-21 18:55:06',3,4),(8,'Assumenda dicta ex pariatur dolore odit praesentium facere vel? Illo veniam, illum maiores dicta doloribus itaque dolorem quos sequi, tenetur minima impedit fugit non animi at tempore velit debitis aliquid autem! Hic quae amet incidunt?','2018-01-21 19:03:52','2018-01-21 19:03:52',3,5),(9,'Beatae sit voluptatum laudantium eligendi dolor quidem!','2018-01-21 19:04:22','2018-01-21 19:04:22',1,5),(10,'Beatae sit voluptatum laudantium eligendi dolor quidem!','2018-01-21 19:05:18','2018-01-21 19:05:18',2,4),(11,'sregdsfg sf sdf df sf fsdg ','2018-01-22 10:56:40','2018-01-22 10:56:40',1,4);
 /*!40000 ALTER TABLE `comments` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -114,4 +114,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2018-01-21 19:15:23
+-- Dump completed on 2018-01-22 10:57:59

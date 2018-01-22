@@ -39,12 +39,11 @@ textarea{
     margin: 1% 0% 0% 0%;
     display: block;
     width: 100%;
+    border-radius: 5px;
 }
 
 .message_header{
-    margin-top: 2%;
-}
-.message_header *{
+    margin-top: 1%;
     display: inline-block;
     vertical-align: top;
     font-size: 14px;
@@ -52,10 +51,10 @@ textarea{
     color: blue;
 }
 
-.message_content{
-    margin: 1% 0% 4% 2%;
-    font-size: 12px;
-    text-align: justify;
+.message_header *{
+    display: inline-block;
+    vertical-align: top;
+
 }
 
 .message_text{
@@ -64,13 +63,19 @@ textarea{
     text-align: justify;
 }
 
-.form_field{
-    margin: 5px 0px 0px 0px;
-    width: 100px;
+.comments_block{
+    margin: 1% 0% 0% 2%;
+    font-size: 12px;
+    /* text-align: justify; */
 }
 
 .comment_posting{
     margin-top: 2%;
+}
+
+.form_field{
+    margin: 5px 0px 0px 0px;
+    width: 100px;
 }
 
 #login_form .form_field{

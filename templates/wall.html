@@ -11,12 +11,12 @@
     <div class="wrapper">
         <div class="header">
             <p class="greeting">Welcome, {{ user['first_name'] }}</p>
+            {{ user }}
             <form action="/logout" method="POST">
                 <input class="logout_button" type="submit" value="Logout">
             </form>
 
         </div>
-
 
         {% with messages = get_flashed_messages() %}
             {% if messages %}
@@ -28,34 +28,33 @@
         
         <form action="/post_message" method="POST">
             <h2>Post a message</h2>
-            <textarea name="message" placeholder="Message"></textarea>
+            <textarea name="message"></textarea>
             <input class="message_button" type="submit">
         </form>
 
         {% for i in messages: %}
             <div class="message_header">
-                <p>{{ i['first_name'] }}</p>
-                <p>{{ i['last_name'] }}</p>
-                <p> - {{ i['message_date'] }}</p>
+                <p>{{ i['first_name'] }} {{ i['last_name'] }} - {{ i['message_date'] }}</p>
+                {% if user['id'] == i['user_id'] %}
+                    <a class="delete_link" href="delete_message">delete message</a>
+                    {{ i['id'] }}
+                {% endif %}
+
             </div>
-            <div class="message_content">
-                <p class="message_text">{{ i['message'] }}</p>
+            <p class="message_text">{{ i['message'] }}</p>
+            <div class="comments_block">
                 <!-- CHAINING COMMENTS UP TO MESSAGE TEXT -->
                 {% for j in comments: %}
                     {% if j['message_id'] == i['id'] %}
                         <div class="comments">
-                            <div class="message_header">
-                                <p>{{ j['first_name'] }}</p>
-                                <p>{{ j['last_name'] }}</p>
-                                <p> - {{ j['comment_date'] }}</p>
-                            </div>
+                            <p class="message_header">{{ j['first_name'] }} {{ j['last_name'] }} - {{ j['comment_date'] }}</p>
                             <p class="message_text"> {{ j['comment'] }} </p>
                         </div>
                     {% endif %}
                 {% endfor%}
                 <h3 class="comment_posting">Post a comment</h3>
                 <form action="/post_comment/{{ i['id'] }} " method="POST">
-                    <textarea name="comment" placeholder="Comment"></textarea>
+                    <textarea name="comment"></textarea>
                     <input class="message_button" type="submit">
                 </form>
             </div>
