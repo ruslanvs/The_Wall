@@ -1,0 +1,107 @@
+*{
+    font-family: Helvetica;
+    margin: 0px;
+    padding: 0px;
+    /* background-color: red; */
+}
+
+.wrapper{
+    padding: 2% 4% 2% 4%;
+    max-width: 980px;
+    box-sizing: border-box;
+    /* border: 5px solid black; */
+    border-radius: 10px;
+}
+
+.header {
+    box-sizing: border-box;
+    padding: 10px 0px 10px 0px;
+    border-bottom: 1px solid black;
+    margin-bottom: 2%;
+    /* background-color: blue; */
+
+}
+
+.header *{
+    display: inline-block;
+    vertical-align: top;
+    margin: 0px 0px 0px 0px;
+}
+
+.greeting{
+    margin: 0% 5% 0% 65%;
+    width: 200px;
+    text-align: right
+    /* color: white; */
+}
+
+textarea{
+    margin: 1% 0% 0% 0%;
+    display: block;
+    width: 100%;
+}
+
+.message_header{
+    margin-top: 2%;
+}
+.message_header *{
+    display: inline-block;
+    vertical-align: top;
+    font-size: 14px;
+    font-family: verdana;
+    color: blue;
+}
+
+.message_content{
+    margin: 1% 0% 4% 2%;
+    font-size: 12px;
+    text-align: justify;
+}
+
+.message_text{
+    /* margin: 1% 0% 4% 2%; */
+    font-size: 12px;
+    text-align: justify;
+}
+
+.form_field{
+    margin: 5px 0px 0px 0px;
+    width: 100px;
+}
+
+.comment_posting{
+    margin-top: 2%;
+}
+
+#login_form .form_field{
+    display: inline-block;
+}
+
+#signup_form .form_field{
+    display: block;
+}
+
+h3{
+    margin-bottom: 5px;
+}
+
+#submit_button{
+    margin: 10px 0px 0px 50px;
+}
+
+#signup_button{
+    margin: 10px 0px 0px 0px;
+}
+
+.message_button{
+    margin: 1% 0% 0% 93%;
+}
+
+.error_message{
+    color: red;
+}
+
+.success_message{
+    color: green;
+}
+

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="{{ url_for( 'static', filename = 'css/style.css' ) }}">
+    <title>Wall</title>
+</head>
+<body>
+    <div class="wrapper">
+        <div class="header">
+            <p class="greeting">Welcome, {{ user['first_name'] }}</p>
+            <form action="/logout" method="POST">
+                <input class="logout_button" type="submit" value="Logout">
+            </form>
+
+        </div>
+
+
+        {% with messages = get_flashed_messages() %}
+            {% if messages %}
+                {% for message in messages %}
+                    <p class="success_message">{{ message }}</p>
+                {% endfor %}
+            {% endif %}
+        {% endwith %}
+        
+        <form action="/post_message" method="POST">
+            <h2>Post a message</h2>
+            <textarea name="message" placeholder="Message"></textarea>
+            <input class="message_button" type="submit">
+        </form>
+
+        {% for i in messages: %}
+            <div class="message_header">
+                <p>{{ i['first_name'] }}</p>
+                <p>{{ i['last_name'] }}</p>
+                <p> - {{ i['message_date'] }}</p>
+            </div>
+            <div class="message_content">
+                <p class="message_text">{{ i['message'] }}</p>
+                <!-- CHAINING COMMENTS UP TO MESSAGE TEXT -->
+                {% for j in comments: %}
+                    {% if j['message_id'] == i['id'] %}
+                        <div class="comments">
+                            <div class="message_header">
+                                <p>{{ j['first_name'] }}</p>
+                                <p>{{ j['last_name'] }}</p>
+                                <p> - {{ j['comment_date'] }}</p>
+                            </div>
+                            <p class="message_text"> {{ j['comment'] }} </p>
+                        </div>
+                    {% endif %}
+                {% endfor%}
+                <h3 class="comment_posting">Post a comment</h3>
+                <form action="/post_comment/{{ i['id'] }} " method="POST">
+                    <textarea name="comment" placeholder="Comment"></textarea>
+                    <input class="message_button" type="submit">
+                </form>
+            </div>
+        {% endfor %}
+
+        <!-- Lorem ipsum dolor sit amet consectetur, adipisicing elit. Beatae sit voluptatum laudantium eligendi dolor quidem! Enim provident veniam quibusdam. Excepturi necessitatibus soluta mollitia ipsam ex, porro officiis. Quaerat, provident suscipit consequuntur error libero possimus doloribus tempore, at optio sunt qui itaque assumenda sint cum iusto eaque nesciunt nihil. Labore, nam porro aspernatur saepe ullam eum vel, quia tenetur pariatur, omnis adipisci eveniet reprehenderit quos distinctio suscipit tempore consequuntur officiis atque explicabo ipsa asperiores voluptatibus esse? Perspiciatis quaerat saepe veniam officiis unde, nesciunt commodi accusamus dolorum nihil doloremque numquam sequi consequatur aliquam est eligendi odio architecto eius fugiat exercitationem? Assumenda dicta ex pariatur dolore odit praesentium facere vel? Illo veniam, illum maiores dicta doloribus itaque dolorem quos sequi, tenetur minima impedit fugit non animi at tempore velit debitis aliquid autem! Hic quae amet incidunt? Reprehenderit autem, fugiat nihil debitis porro, possimus officia fugit quidem tempore molestias voluptatem laborum deleniti ullam provident mollitia inventore doloremque consectetur tempora illo dolorem quasi libero repellat placeat temporibus. Placeat consectetur rem veritatis suscipit alias nam maxime nobis commodi maiores dolor ea impedit, saepe voluptatibus totam, aut ipsa ducimus ipsam ratione! Architecto, dolore! Aut soluta, quibusdam temporibus vel harum, laudantium error labore inventore voluptatibus nulla odit. Doloremque. -->
+
+
+    </div>
+</body>
+</html>
